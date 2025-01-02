@@ -6,9 +6,9 @@
 
 <h1>2) Primitive v/s Non-primitive datatype  </h1>
 
-Primitive                                                             Non-Primitive 
+Primitive                                                              Non-Primitive 
 (Number, String , Boolean, Undefined, Null, BigInt, Symbol)            (Array, Object)
-Primitive Data types are predefined. 	                               Non-Primitive data types are created by the programmer
+Primitive Data types are predefined. 	                                 Non-Primitive data types are created by the programmer
 Primitive Data types will have certain values.	                       Non-Primitive data types can be NULL.
 Size depends on the type of data structure.	                           Size is not fixed
 
@@ -71,10 +71,18 @@ e) Anonymous Function
 f) Higher Order Function
 
 <h1> New Features of ES6 </h1>
+
 a) The let & const Keyword
+
 b) Arrow Functions
+
 c) Destructuring assignment(array/object destructuring)
 
+let arr1 = [0,1,2,3,4];
+let [b1,b2] = arr1;
+
+const obj2 = {name2 : "Ab", age2 : 27}
+const { name2, age2 } = obj2;
 
 d) for of loop 
 
@@ -82,12 +90,12 @@ syntax : for(const item of array){
     //code
 }
 
-e) Map and Set
+e) Map and Set - stores key value pairs
+
 f) promises
-g) default parameters
+g) default parameters 
 h) classes
 i) spread operator
-
 
 
 <h1> Continue v/s break   </h1>
@@ -96,3 +104,8 @@ continue - to skip current iteration and move onto next iteration
 break - to stop execution of loop/switch statements
 
 <h1> Rest vs Spread Operator </h1> 
+
+The rest parameter is converse to the spread operator. while the spread operator expands elements of an iterable, the rest parameter compresses them.
+
+spread operator use case -> Combining arrays / Copying arrays / pass array as argument to function 
+rest operator use case -> array destructuring / allows functions to accept an indefinite number of arguments

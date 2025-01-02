@@ -25,6 +25,63 @@ will
 print exactly like this`
 console.log(fullSentence);
 
+//rest operator use in array and function 
+
+function sumRest(...arr){
+    let sum = 0;
+ for (const item of arr){
+    sum +=item;
+ }
+ return sum;
+}
+
+console.log("sum using spread operator is ", sumRest(1,2,3,4,5,6));
+
+let array2 = [1,2,3];
+let [aOne,...aRest] = array2;
+console.log("array destructuring using spread operator is ", aOne, aRest);
+
+//spread operator use in array and function
+
+let arrayOld = [1,2,3]
+let arrayNew = [...arrayOld, 4, 5];
+console.log(arrayNew);
+
+let arrayOld1 = [4,5,6];
+let arrayLatest = [...arrayOld,...arrayOld1 ];
+console.log(arrayLatest);
+
+function sumSpread(a,b,c ){
+    return a+b+c;
+   }
+
+console.log("sum using spread operator is ", sumSpread(...arrayOld));
+
+// before array destructuring
+
+let arr1 = [0,1,2,3,4]
+let a1 = arr1[0];
+let a2 = arr1[1];
+
+// after array destructuring
+
+let [b1,b2] = arr1;
+console.log("destructuring array", b1,b2);
+
+// before object destructuring
+
+const obj1 = {name : "Ab", age : 27}
+let name1 = obj1.name;
+let age1 = obj1.age;
+console.log("destructuring obj",name1,age1);
+
+// after object destructuring
+
+const obj2 = {name2 : "Ab", age2 : 27}
+const { name2, age2 } = obj2;
+console.log("destructuring obj",name2,age2);
+
+
 //string creation Method 
 
 const string1 = "Method1 -A string primitive";
