@@ -1,14 +1,3 @@
-//Ques Asked in Interview
-
-let a = 10;
-let b = a++;
-let c = ++a;
-
-console.log(a); //12
-console.log(b); //10
-console.log(c); //12
-
-
 //short-circuiting example
 console.log(false|| 7 || 18 || false) //7
 
@@ -39,7 +28,7 @@ console.log("sum using spread operator is ", sumRest(1,2,3,4,5,6));
 
 let array2 = [1,2,3];
 let [aOne,...aRest] = array2;
-console.log("array destructuring using spread operator is ", aOne, aRest);
+console.log("array destructuring using rest operator is ", aOne, aRest);
 
 //spread operator use in array and function
 
@@ -109,6 +98,52 @@ const string6 = "this /is /to /test /split /function";
 console.log(string6.split(' /'));
 
 
+// array slice 
+let brr = [1,2,3,4,5];
+console.log("slice output", brr.slice(1,3))
+
+// array slice 
+let brr1 = [10,20,30,40];
+brr1.splice(1,1,90);
+console.log("splice output insert second element and delete 90", brr1);
+
+
+//array sort ascending / descending
+
+brr1.sort((a,b)=> b-a);
+console.log("descending array", brr1);
+brr1.sort((a,b)=> a-b);
+console.log("ascending array", brr1);
+
+//array map
+
+let mapDoubleArray = brr1.map((item,index)=>{
+    return item*2;
+})
+console.log("original array", brr1);
+console.log("array using map function", mapDoubleArray);
+
+//array filter
+
+let filterEvenArray = brr1.filter((item,index)=>{
+   if(item%2==0){
+    return true;
+   } 
+   else false;
+})
+console.log("original array", brr1);
+console.log("array using filter function", filterEvenArray);
+
+// array reduce
+
+let reduceSumArray = brr1.reduce((acc,curr)=>{
+    return acc = acc + curr;
+},0)
+
+console.log("original array", brr1);
+console.log("array using reduce function", reduceSumArray);
+
+
 //while loop example
 let j =0;
 while(j<3){
@@ -123,13 +158,33 @@ for(const item of array1){
     console.log(item);
 }
 
-//for of loop using sting
+
+//for of loop using string
 
 let string11 = "abhi"
 
 for(const item of string11){
     console.log(item);
 }
+
+//for each loop using array
+
+array1.forEach((item,index)=>{
+    console.log(`${index} element is` ,item);
+})
+
+//for in using object
+
+let objNew = {
+    name1 : "Ab",
+    age1 : 27,
+    height1 : 5.4
+}
+
+for(let key in objNew){
+ console.log("Key is", key, "value is" , objNew[key]);
+}
+
 
 
 
