@@ -14,6 +14,14 @@ will
 print exactly like this`
 console.log(fullSentence);
 
+// default parameter
+
+function defValue(name="Abhi",age = 27){
+    console.log("default name and age value = ", name, age );
+}
+
+defValue();
+
 //rest operator use in array and function 
 
 function sumRest(...arr){

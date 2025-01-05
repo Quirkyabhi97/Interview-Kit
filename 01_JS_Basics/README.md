@@ -70,9 +70,19 @@ f) string.trim() -> remove whitespace
 
 g) string.split(separator, limit) -> takes a pattern and divides this string into an ordered list of substrings by searching for the pattern, and returns substring in form of the array.
 
-<h1> 8) Arrays </h1>
+<h1> 8) Arrays / Number of ways to Create Array / Operations on Array </h1>
 
 collection of Items.
+
+-> number of ways to create array 
+
+a) using array literals
+
+b) using Array() constructor and new keyword
+
+c) array.prototype.split()
+
+-> operations
 
 a) array.push/pop -> insert/remove topmost element
 
@@ -96,15 +106,25 @@ i) array.reduce -> The reduce() method reduces an array of values down to just o
 
 ![Difference](Map_Filter_Reduce.png)
 
-<h1>10) Objects </h1>
+<h1>10) Objects / Number of ways to create Objects </h1>
 
 Collection of key-value pair.
+
+-> number of ways to create objects
+
+a) using object literals
+
+b) using ES6 classes
+
+c) using constructor
+
+d) using object.assign()
 
 <h1>11) Types of Functions </h1>
 
 a) Arrow function -> compact alternative , introduced in ES6
 
-b) IIFE (Immediately Invoked Function) -> Runs as soon as it is defined
+b) IIFE (Immediately Invoked Function Expression) -> Runs as soon as it is defined
 syntax : (function () {
 // …
 })();
@@ -118,6 +138,8 @@ d) Named Function
 e) Anonymous Function
 
 f) Higher Order Function
+
+g) function with default parameter -> allow function to use a predefined value
 
 <h1> 12) New Features of ES6 </h1>
 
