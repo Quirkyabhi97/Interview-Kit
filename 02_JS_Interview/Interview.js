@@ -46,6 +46,7 @@ let tempObj = {
   name1: "hari",
   age1: 35,
   hello: () => {
+    //different output in case instead of arrow function , normal function is used
     console.log(` ${name1} ${this.name1} ${age1} ${this.age1}`);
   },
 };
@@ -230,6 +231,53 @@ console.log('Immediate');
 for (var i = 0; i < 3; i++) {
     setTimeout(() => console.log("Hi",i), 1000);
 } //All will be printed after 1000 ms
+
+//Ques 18 - fetch object whose id and name does not repeat
+
+let originalArr = [{ id : 1, name : "Abhi"},{ id : 2, name : "Manish"},{ id : 3, name : "Shreya"},{ id : 1, name : "Abhi"}]
+
+//solution 1 -> using for loop
+
+let uniqueArr = [];
+let seenIds = [];
+let seenNames = [];
+
+for (let i = 0; i < originalArr.length; i++) {
+  // Check if the id and name have both not been seen before
+  if (!seenIds.includes(originalArr[i].id) && !seenNames.includes(originalArr[i].name)) {
+    uniqueArr.push(originalArr[i]);
+    seenIds.push(originalArr[i].id);   // Track the unique id
+    seenNames.push(originalArr[i].name); // Track the unique name
+  }
+}
+
+console.log("Unique array is ",uniqueArr);
+console.log(seenIds);
+console.log(seenNames);
+
+////solution 2 -> using HOC i.e. reduce
+
+let uniqueArr2 = originalArr.reduce((acc, item) => {
+  // Manually check if both id and name have not been seen before
+  let isUnique = true;
+  
+  for (let i = 0; i < acc.length; i++) {
+    if (acc[i].id === item.id && acc[i].name === item.name) {
+      isUnique = false;
+      break;
+    }
+  }
+
+  if (isUnique) {
+    acc.push(item);
+  }
+
+  return acc;
+}, []);
+
+console.log(uniqueArr2);
+
+
 
 //Ques  -> Write a function to find the first non-repeating character in a string
 
