@@ -74,9 +74,64 @@ console.log("with curring using closure result is ",multiplyThreeClosure(10)(20)
 
 // 4.1) polyfill for Array.prototype.includes()
 
+let ArrayCheck = [1,2,3]
+
+console.log("output using array.includes is  "+ ArrayCheck.includes(1))
+
+Array.prototype.myIncludesPolyfill = function(num){
+    let arr = this;
+ if(!num){
+    return false;
+ }
+ else{
+    for (let i=0; i<arr.length;i++){
+        if(arr[i]==num){
+            return true;
+        }
+        else return false
+    }
+ }
+}
+
+
+console.log("output using array.myIncludesPolyfill is  "+ ArrayCheck.myIncludesPolyfill(1))
+
 // 4.2) polyfill for Math.Trunc()
 
+console.log("output using Math.trunc is  "+ Math.trunc(-4.4))
+
+Math.myTruncPolyfill = function(num){
+ return num<0 ? Math.ceil(num) : Math.floor(num)
+}
+
+console.log("output using Math.myTruncPolyfill  is  "+ Math.myTruncPolyfill(-4.4))
+
 // 4.3) polyfill for Function.prototype.bind()
+
+let personalDetail3 = {
+    fName : "Aksh",
+    lName : "Vyas"
+}
+
+function printDetails(age,hometown){
+    console.log(this.fName + " of age " +age + " from " + hometown );
+}
+
+let pDetails = printDetails.bind(personalDetail3 , "28", "Jaiselmer");
+pDetails();
+
+Function.prototype.myBindPolyfill= function(...args){
+    obj = this;
+    //here this points to the function printDetails 
+    return function(...args2){
+      //call is uses to borrow function printName
+      obj.call(...args,...args2);
+    }
+}
+
+let pDetailsWithBind = printDetails.myBindPolyfill(personalDetail3,"28");
+pDetailsWithBind("Jaiselmer");
+
 
 // legal vs Illegal shadowing
 

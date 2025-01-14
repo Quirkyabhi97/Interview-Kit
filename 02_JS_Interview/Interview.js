@@ -277,6 +277,23 @@ let uniqueArr2 = originalArr.reduce((acc, item) => {
 
 console.log(uniqueArr2);
 
+//Ques 18 - write a function for sum(1)(2)(3)(4)()
+
+function sum(a){
+  return function(b){
+    if(b){
+      return sum(a+b);
+    }
+    else return a;
+
+  }
+}
+
+console.log("using recursive approach solution is "+ sum(1)(2)(3)(4)());
+
+
+//Ques 19 - Second highest number in array
+
 
 
 //Ques  -> Write a function to find the first non-repeating character in a string
