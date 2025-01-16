@@ -1,4 +1,40 @@
-// 1.1) deep copy using spread operator
+// Callback as a parameter
+
+let callback1 = function () {
+  console.log("example 1 of Callback");
+};
+
+setTimeout(callback1, 1000);
+
+// Callback as an Anonymous function
+
+setTimeout(function () {
+  console.log("example 2 of Callback");
+}, 1000);
+
+// Callback as an ES6 Arrow function
+
+setTimeout(() => {
+  console.log("example 3 of Callback");
+}, 1000);
+
+// Callback Hell example using Ecommerce website
+
+let cart = ["Shirt", "Pant", "Shoes"];
+
+let api = "";
+
+api.createOrder(cart, () => {
+  //code grows horizontally instead of vertically
+
+  api.createPayment(() => {
+    //passed as a callback to createOrder, dependent on createOrder to be executed first
+
+    api.updateWallet(); //passed as a callback to createPayment, dependent on createPayment to be executed first
+  });
+});
+
+// // 1.1) deep copy using spread operator
 
 let oldObj = { name1: "Abhi", age: 27 };
 let newObj = { ...oldObj };

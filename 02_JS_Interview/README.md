@@ -2,7 +2,7 @@ Hi, these are set of questions which were given priority in interviews.
 For example of each topic please refer Example.js.
 
 <h1> About Javascript  </h1>
-*JavaScript is a synchronous single-threaded language
+JavaScript is a synchronous single-threaded language
 
 -Single threaded means JavaScript can execute once command at a time
 -Synchronous single-threaded that means JavaScript can execute one command at a time in a specific order.
@@ -13,10 +13,10 @@ Everything in JavaScript happens inside an "execution context".
 
 Execution context has two component
 
-       a)memory component[variable environment]
+       a) Memory component[variable environment]
          This is the place where all variables and functions are stored as key value pairs. eg-{key: value ||  n:2;}
 
-       b)code component[Thread of execution]
+       b) Code component[Thread of execution]
          This is the place where code is executed one line at a time
 
 1.  When JavaScript code is executed, Execution Context is created and it is called Global Execution Context.
@@ -36,6 +36,77 @@ Execution context has two component
 ![Execution](Execution_Context_1.png)
 
 ![Execution](Execution_Context_2.png)
+
+<h1> Hoisting  </h1>
+
+1.  Hoisting allows you to use functions and variables before they're declared
+
+2.  In MEMORY ALLOCATION PHASE
+
+           Variable declarations are scanned and allocated memory, initialized with the value 'undefined'.
+
+           Function declarations are scanned and stored in memory with their entire code.
+
+3.  Arrow functions enact as variables and get "undefined" during the memory creation phase while functions actually get run.
+
+<h1> Window Object  </h1>
+
+1.  window object is created by the JS engines of the respective browsers when global execution context is created.
+    It contains the various methods and properties that we can use to access and manipulate the current browser window
+
+             ex -> Windows.setTimeout() , Windows.console , Windows.sessionStorage
+
+2.  A window for a given document can be obtained using the document.defaultView property.
+
+3.  At global level "This" points to Window Object
+
+          ex-> let a =10;
+               console.log(a);          //output=10
+               console.log(window.a);   //output=10
+               console.log(this.a);     //output=10
+
+<h1> Callback  </h1>
+
+Callbacks are the functions passed to another function as an argument and it helps to write asynchronous operation in JS.
+
+3 ways to create Callback
+
+           a) Pass as a parameter to another function
+           b) Callback as an Anonymous function
+           c) Callback as an ES6 Arrow function
+
+<h1> Callback Hell </h1>
+
+When we are using callbacks, we face two issues:
+
+1. Callback hell - When we have multiple dependent callbacks it will form nested callbacks, code will be unmaintainable and unreadable. This nested callback structure is also called Pyramid of Doom.
+
+2. Inversion of control - We pass the callback function within another function, we are blindly trusting where we don't know whether that function will ever execute our callback function or not, it's so risky for a developer. We loose the control of our program.
+
+ <h1> Promises </h1>
+
+1.  Before promise we used to depend on callback functions which would result in ->
+
+         a) Callback Hell (Pyramid of doom) </br>
+         b) Inversion of control
+
+2) Inversion of control is overcome by using promise.
+
+   2.1) A promise is an object that represents eventual completion/failure of an asynchronous operation.
+
+   2.2) A promise has 3 states: pending | fulfilled | rejected.
+
+   2.3) As soon as promise is fulfilled/rejected => It updates the empty object which is assigned undefined in pending state.
+
+   2.4) A promise resolves only once and it is immutable.
+
+   2.5) Using .then() we can control when we call the cb(callback) function.
+
+<h1> Promises Chaining </h1>
+
+1. To avoid callback hell (Pyramid of doom) => We use promise chaining. This way our code expands vertically instead of horizontally. Chaining is done using '.then()'
+
+2. A very common mistake that developers do is not returning a value during chaining of promises. Always remember to return a value. This returned value will be used by the next .then()
 
 <h1> Shallow Copy Vs Deep Copy  </h1>
 
@@ -98,31 +169,6 @@ Even if the triggering event occurs more frequently, the function is invoked acc
 
         use case : suitable for scenarios where you want to limit the frequency of function calls,
                    like handling scroll events or resizing events
-
- <h1> Promises </h1>
-
-1.  Before promise we used to depend on callback functions which would result in ->
-
-         a) Callback Hell (Pyramid of doom) </br>
-         b) Inversion of control
-
-2) Inversion of control is overcome by using promise.
-
-   2.1) A promise is an object that represents eventual completion/failure of an asynchronous operation.
-
-   2.2) A promise has 3 states: pending | fulfilled | rejected.
-
-   2.3) As soon as promise is fulfilled/rejected => It updates the empty object which is assigned undefined in pending state.
-
-   2.4) A promise resolves only once and it is immutable.
-
-   2.5) Using .then() we can control when we call the cb(callback) function.
-
-<h1> Promises Chaining </h1>
-
-1. To avoid callback hell (Pyramid of doom) => We use promise chaining. This way our code expands vertically instead of horizontally. Chaining is done using '.then()'
-
-2. A very common mistake that developers do is not returning a value during chaining of promises. Always remember to return a value. This returned value will be used by the next .then()
 
 <h1> Tree Shaking in JS</h1>
 
