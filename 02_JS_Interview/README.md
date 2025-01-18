@@ -4,7 +4,7 @@ For example of each topic please refer Example.js.
 <h1> About Javascript  </h1>
 JavaScript is a synchronous single-threaded language
 
--Single threaded means JavaScript can execute once command at a time
+-Single threaded means JavaScript can execute once command at a time</br>
 -Synchronous single-threaded that means JavaScript can execute one command at a time in a specific order.
 
 <h1> Execution Context / Call Stack  </h1>
@@ -90,17 +90,31 @@ When we are using callbacks, we face two issues:
          a) Callback Hell (Pyramid of doom) </br>
          b) Inversion of control
 
-2) Inversion of control is overcome by using promise.
+2)  Inversion of control is overcome by using promise.
 
-   2.1) A promise is an object that represents eventual completion/failure of an asynchronous operation.
+    2.1) A promise is an object that represents eventual completion/failure of an asynchronous operation.
 
-   2.2) A promise has 3 states: pending | fulfilled | rejected.
+    2.2) A promise has 3 states: pending | fulfilled | rejected.
 
-   2.3) As soon as promise is fulfilled/rejected => It updates the empty object which is assigned undefined in pending state.
+    2.3) As soon as promise is fulfilled/rejected => It updates the empty object which is assigned undefined in pending state.
 
-   2.4) A promise resolves only once and it is immutable.
+    2.4) A promise resolves only once and it is immutable.
 
-   2.5) Using .then() we can control when we call the cb(callback) function.
+    2.5) Using .then() we can control when we call the cb(callback) function.
+
+           Before Promise ->
+
+                             createOrder(cartItem, function(orderId){
+                               createPayment(orderId)
+                             })
+
+           After Promise ->
+
+                             let promise = createOrder(cartItem)
+
+                             promise.then(function(orderId){
+                               createPayment(orderId)
+                             })
 
 <h1> Promises Chaining </h1>
 
