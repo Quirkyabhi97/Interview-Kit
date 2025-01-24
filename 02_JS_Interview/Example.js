@@ -1,4 +1,15 @@
-// Callback as a parameter
+// Closure
+
+function outer(){
+  let outerVar = 10;
+  function inner(){
+  console.log("Accessing outerVar using closure", outerVar)
+}
+inner();
+} 
+
+outer();
+// // Callback as a parameter
 
 let callback1 = function () {
   console.log("example 1 of Callback");
@@ -22,7 +33,11 @@ setTimeout(() => {
 
 let cart = ["Shirt", "Pant", "Shoes"];
 
-let api = "";
+let api = {
+  createOrder : createOrder=()=>{
+    console.log("OrderCreated");
+  }
+}
 
 api.createOrder(cart, () => {
   //code grows horizontally instead of vertically
@@ -33,6 +48,8 @@ api.createOrder(cart, () => {
     api.updateWallet(); //passed as a callback to createPayment, dependent on createPayment to be executed first
   });
 });
+
+
 
 // // 1.1) deep copy using spread operator
 

@@ -1,11 +1,37 @@
 Hi, these are set of questions which were given priority in interviews.
 For example of each topic please refer Example.js.
 
-<h1> About Javascript  </h1>
-JavaScript is a synchronous single-threaded language
+<h1>Var/ Let/ Const  </h1>
 
--Single threaded means JavaScript can execute once command at a time</br>
--Synchronous single-threaded that means JavaScript can execute one command at a time in a specific order.
+->Scope of variables -> functional,Global / block / block
+
+->Redeclaration and reassignment - redeclared and reassigned / cannot be re-declared but reassigned / neither declared nor reassigned
+
+-> Hoisting - Can be Hoisted / Cannot ,stay in TBZ till initialized / cannot , stay in TBZ
+
+-> Window object -> attached to window object, can be accessed using this,window object / Not attached,accessed / Not attached, accessed
+
+       Note : 1) level of strictness -> Const >>> Let >>> Var
+              2) Use const wherever possible , followed by let & var the least
+              3) const variable declaration and initialisation must be done on the same line.
+
+<h1> Hoisting  </h1>
+
+1.  Hoisting allows you to use functions and variables before they're declared
+
+2.  In MEMORY ALLOCATION PHASE
+
+           Variable declarations are scanned and allocated memory, initialized with the value 'undefined'.
+
+           Function declarations are scanned and stored in memory with their entire code.
+
+3.  Arrow functions enact as variables and get "undefined" during the memory creation phase while functions actually get run.
+
+<h1> Hoisting  </h1>
+
+1) Function bundled with its lexical environment is known as a closure. 
+
+2) Closures help retain references to variables that would otherwise be lost after the execution of the outer function.
 
 <h1> Execution Context / Call Stack  </h1>
 
@@ -37,17 +63,33 @@ Execution context has two component
 
 ![Execution](Execution_Context_2.png)
 
-<h1> Hoisting  </h1>
+<h1> Lexical Environment / Scope Chain </h1>
 
-1.  Hoisting allows you to use functions and variables before they're declared
+1. Scope of a variable is directly dependent on the lexical environment.
 
-2.  In MEMORY ALLOCATION PHASE
+2. Whenever an execution context is created, a lexical environment is created. Lexical environment is the local memory along with the lexical environment of its parent. Lexical as a term means in hierarchy or in sequence.
 
-           Variable declarations are scanned and allocated memory, initialized with the value 'undefined'.
+3. Having the reference of parent's lexical environment means, the child or the local function can access all the variables and functions defined in the memory space of its lexical parent.
 
-           Function declarations are scanned and stored in memory with their entire code.
+4. The JS engine first searches for a variable in the current local memory space, if its not found here it searches for the variable in the lexical environment of its parent, and if its still not found, then it searches that variable in the subsequent lexical environments, and the sequence goes on until the variable is found in some lexical environment or the lexical environment becomes NULL.
 
-3.  Arrow functions enact as variables and get "undefined" during the memory creation phase while functions actually get run.
+5. The mechanism of searching variables in the subsequent lexical environments is known as Scope Chain. If a variable is not found anywhere, then we say that the variable is not present in the scope chain.
+
+![Scope_Chain](ScopeChain.jpg)
+
+<h1> Block Scope  </h1>
+
+1. Code inside curly bracket is called block.
+
+2. Multiple statements are grouped inside a block so it can be written where JS expects single statements like in if, else, loop, function etc.
+
+3. Block values are stored inside separate memory than global. They are stored in block. (the reason let and const are called block scope)
+
+<h1> Temporal Dead Zone  </h1>
+
+1. A temporal dead zone (TDZ) is the time where a variable is inaccessible until the moment the computer completely initializes it with a value.
+
+2. Whenever you try to access a "let" or "const" variable in the temporal dead zone, then it will always give you reference error.
 
 <h1> Window Object  </h1>
 

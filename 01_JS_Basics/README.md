@@ -1,10 +1,10 @@
-<h1>1) Var/ Let/ Const  </h1>
+<h1>1) About Javascript  </h1>
 
-->Scope of variables -> functional,Global / block / block
+JavaScript is a synchronous single-threaded language
 
-->Redeclaration and reassignment - redeclared and reassigned / cannot be re-declared but reassigned / neither declared nor reassigned
+-Single threaded means JavaScript can execute once command at a time
 
--> Hoisting - Can be Hoisted / Cannot ,stay in TBZ till initialized / cannot , stay in TBZ
+-Synchronous single-threaded that means JavaScript can execute one command at a time in a specific order.
 
 <h1>2) Primitive v/s Non-primitive datatype  </h1>
 
@@ -28,6 +28,7 @@ NaN - NaN stands for Not a Number. You get this value when you try to do some op
 <h1>4) Truthy vs Falsy </h1>
 
 Falsy - undefined, null , 0, false, NaN , ''
+
 Truthy - Anything which is not falsy.
 
 <h1>4) Short Circuiting </h1>
@@ -74,7 +75,7 @@ g) string.split(separator, limit) -> takes a pattern and divides this string int
 
 collection of Items.
 
--> number of ways to create array 
+-> number of ways to create array
 
 a) using array literals
 
@@ -86,13 +87,13 @@ c) array.prototype.split()
 
 a) array.push/pop -> insert/remove topmost element
 
-b) array.shift/unshift -> remove/add a leftmost element 
+b) array.shift/unshift -> remove/add a leftmost element
 
 c) array.slice(start, end) -> does not include end element
 
 d) array.splice(start, deleteCount, item1, item2) -> change content of array(insert,replace,remove)
 
-e) array.sort((a,b)=>b-a) -> for descending order 
+e) array.sort((a,b)=>b-a) -> for descending order
 
 f) array.indexOf(searchElement, fromIndex)
 
@@ -100,7 +101,7 @@ f) array.indexOf(searchElement, fromIndex)
 
 g) array.map -> The map() method is used for creating a new array from an existing one, applying a function to each one of the elements of the first array / original array remain unaffected
 
-h) array.filter -> The filter() method takes each element in an array and it applies a conditional statement against it. If this conditional returns true, the element gets pushed to the output array. If the condition returns false, the element does not get pushed to the output array. 
+h) array.filter -> The filter() method takes each element in an array and it applies a conditional statement against it. If this conditional returns true, the element gets pushed to the output array. If the condition returns false, the element does not get pushed to the output array.
 
 i) array.reduce -> The reduce() method reduces an array of values down to just one value.
 
@@ -168,18 +169,18 @@ f) promises
 g) default parameters
 
 h) classes
-  Note -> follows OOPS model, private member can be declared with # symbol (e.g. #name)
+Note -> follows OOPS model, private member can be declared with # symbol (e.g. #name)
 
-   to access private varible inside class use this operator (this.#name)
+to access private varible inside class use this operator (this.#name)
 
-   to access private varible outside class use getter/setter 
+to access private varible outside class use getter/setter
 
-   e.g -> get fetchName(){
-       return this.#name;
-   }
+e.g -> get fetchName(){
+return this.#name;
+}
 
-   set modifyName(val){
-       this.#name = val;
-   }
+set modifyName(val){
+this.#name = val;
+}
 
 i) spread operator
