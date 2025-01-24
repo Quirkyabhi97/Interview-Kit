@@ -319,6 +319,21 @@ console.log(newArr2);
 
 //Ques 19 - Second highest number in array
 
+//Ques 20 - Print 10,20,30,40,50 after each second
+
+function timeoutExample(){
+  for(let i=1;i<6;i++){                
+    //if we use var instead of let it will refer to same memory location(closure) and will print same output i.e. 50 everytime
+    // whereas let has block scope, therefor new variable is created on every callback, and give output as 10, 20, 30, 40, 50
+    setTimeout(()=>{
+      console.log(`after ${i} second`, i*10);
+    },i*1000)
+    
+  } 
+  }
+
+  console.log(timeoutExample());
+
 //Ques  -> Write a function to find the first non-repeating character in a string
 
 // Example -> console.log(firstNonRepeatingChar("swiss")); // Output: w
