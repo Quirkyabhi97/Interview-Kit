@@ -33,6 +33,21 @@ For example of each topic please refer Example.js.
 
 2) Closures help retain references to variables that would otherwise be lost after the execution of the outer function.
 
+<h1> Closures </h1>
+
+1) Function bundled with its lexical environment is known as a closure. Whenever function is returned, even if its vanished in execution context but still it remembers the reference it was pointing to
+
+2) Closures can also be used for data hiding and encapsulation. So other code cannot access this value.
+
+            uses of closures : a) curring
+                               b) memoize
+                               c) setTimeout
+                               d) function like once
+
+                disadvantage : a) memory consumption is high (thus difficulty for garbage collection)
+
+      
+
 <h1> Execution Context / Call Stack  </h1>
 
 Everything in JavaScript happens inside an "execution context".
@@ -249,3 +264,11 @@ Functions can be ->
 when a variable is declared in a certain scope having the same name defined on its outer scope and when we call the variable from the inner scope, the value assigned to the variable in the inner scope is the value that will be stored in the variable in the memory space. This is known as Shadowing or Variable Shadowing.
 
 ![Shadowing](Shadowing.png)
+
+<h1> Set Timeout </h1>
+
+1. setTimeout stores the function in a different place and attached a timer to it, when the timer is finished it rejoins the call stack and executed.
+
+2. Without closure the var reference gives the latest value as it does not retain the original value but rather has the reference so any update in value after timeout will be shown.
+
+3. If we use let/const because they have block scope, every time a new copy of variable is attached, thus this can be done without closure.
