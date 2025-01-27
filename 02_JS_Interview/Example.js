@@ -1,4 +1,4 @@
-// Closure
+// Topic -1//Closure
 
 function outer(){
   let outerVar = 10;
@@ -9,7 +9,7 @@ inner();
 } 
 
 outer();
-// // Callback as a parameter
+//  Callback as a parameter
 
 let callback1 = function () {
   console.log("example 1 of Callback");
@@ -29,7 +29,7 @@ setTimeout(() => {
   console.log("example 3 of Callback");
 }, 1000);
 
-// Callback Hell example using Ecommerce website
+// Topic //Callback Hell example using Ecommerce website
 
 let cart = ["Shirt", "Pant", "Shoes"];
 
@@ -51,7 +51,7 @@ api.createOrder(cart, () => {
 
 
 
-// // 1.1) deep copy using spread operator
+// Topic // 1.1) deep copy using spread operator
 
 let oldObj = { name1: "Abhi", age: 27 };
 let newObj = { ...oldObj };
@@ -67,7 +67,7 @@ newObj2.name1 = "Adi";
 console.log("old object is", oldObj);
 console.log("newobject2 is", newObj2);
 
-// 2.1) function borrowing using call()
+// Topic // 2.1) function borrowing using call()
 
 let personalDetail1 = {
   fName: "Abhi",
@@ -98,7 +98,7 @@ printDetail.apply(personalDetail1, ["Jaipur", 30]);
 let newDetails = printDetail.bind(personalDetail1, "Ajmer", 31);
 newDetails();
 
-// 3.1) Curring using Bind function
+// Topic // 3.1) Curring using Bind function
 
 let multipleThreeArgs = function (a, b, c) {
   return a * b * c;
@@ -125,7 +125,7 @@ console.log(
   multiplyThreeClosure(10)(20)(30)
 );
 
-// 4.1) polyfill for Array.prototype.includes()
+// Topic // 4.1) polyfill for Array.prototype.includes()
 
 let ArrayCheck = [1, 2, 3];
 
@@ -187,7 +187,26 @@ Function.prototype.myBindPolyfill = function (...args) {
 let pDetailsWithBind = printDetails.myBindPolyfill(personalDetail3, "28");
 pDetailsWithBind("Jaiselmer");
 
-// 5.1 ) Debouncing
+// 4.4) polyfill for Function.prototype.map()
+
+Array.prototype.mapPolyfill = function(logicFunc){
+  let Newarr = [];
+  let arr=this;
+    for(let i=0;i<arr.length;i++){
+        Newarr.push(logicFunc(arr[i]));
+    }
+    return Newarr;
+}
+
+let radius = [3,4,5];
+
+let area= function(rad){
+  return Math.PI*rad*rad;
+}
+
+console.log("area using map polyfill", radius.map(area));
+
+// Topic // 5.1 ) Debouncing
 
 function myDebounce(func, delay) {
   let timer; // stores the ID of the timeout that is set using setTimeout
@@ -236,7 +255,7 @@ function resizeWindow() {
 
 // window.addEventListener("resize", callMyDebounce);
 
-// legal vs Illegal shadowing
+// Topic // legal vs Illegal shadowing
 
 function shadowingExample() {
   var a = 10;
@@ -250,3 +269,24 @@ function shadowingExample() {
 }
 
 shadowingExample();
+
+// Topic // function Constructor
+
+function counterConstructor(){
+  count = 0;
+  // With "this", the properties(count) would be local to the constructor and wouldn't be assigned to the object(counter) instances.Thus will give error when accessed
+  this.incrementCounter = function(){  
+    //The use of "this" ensures that each new object created by the Person function gets its own instance of incrementCounter function.
+    count++;
+    console.log("increment Counter function called", count);
+  }
+  this.decrementCounter = function(){
+    count--;
+    console.log("decrement Counter function called", count);
+  }
+}
+
+let counter = new counterConstructor();
+counter.incrementCounter();
+counter.decrementCounter();
+
