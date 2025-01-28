@@ -29,24 +29,22 @@ For example of each topic please refer Example.js.
 
 <h1> Hoisting  </h1>
 
-1) Function bundled with its lexical environment is known as a closure. 
+1. Function bundled with its lexical environment is known as a closure.
 
-2) Closures help retain references to variables that would otherwise be lost after the execution of the outer function.
+2. Closures help retain references to variables that would otherwise be lost after the execution of the outer function.
 
 <h1> Closures </h1>
 
-1) Function bundled with its lexical environment is known as a closure. Whenever function is returned, even if its vanished in execution context but still it remembers the reference it was pointing to
+1.  Function bundled with its lexical environment is known as a closure. Whenever function is returned, even if its vanished in execution context but still it remembers the reference it was pointing to
 
-2) Closures can also be used for data hiding and encapsulation. So other code cannot access this value.
+2.  Closures can also be used for data hiding and encapsulation. So other code cannot access this value.
 
-            uses of closures : a) curring
-                               b) memoize
-                               c) setTimeout
-                               d) function like once
+             uses of closures : a) curring
+                                b) memoize
+                                c) setTimeout
+                                d) function like once
 
-                disadvantage : a) memory consumption is high (thus difficulty for garbage collection)
-
-      
+                 disadvantage : a) memory consumption is high (thus difficulty for garbage collection)
 
 <h1> Execution Context / Call Stack  </h1>
 
@@ -77,6 +75,18 @@ Execution context has two component
 ![Execution](Execution_Context_1.png)
 
 ![Execution](Execution_Context_2.png)
+
+<h1> Event Loop/ Web Api</h1>
+
+1.  Event loop is a mechanism that enables asynchronous operations to be executed in a non-blocking manner.
+
+2.  The event loop continuously checks the Call stack ,Callback queue(setTimeout) and Microtask queue(promises and mutation observer). If the call stack is empty, it takes the first function from the callback queue and pushes it onto the call stack for execution.
+
+        priority -> Call Stack -> Microtask Queue -> Callback Queue
+
+3.  Web APIs refer to sets of functionalities provided by the browser environment to interact with web-related features and resources.
+
+![Event_Loop](Event_Loop.png)
 
 <h1> Lexical Environment / Scope Chain </h1>
 
@@ -122,7 +132,14 @@ Execution context has two component
                console.log(window.a);   //output=10
                console.log(this.a);     //output=10
 
-<h1> Callback  </h1>
+<h1> Higher Order function </h1>
+
+A higher-order function is a function that does one or both of the following:
+
+          a) Takes one or more functions as arguments.
+          b) Returns a function as its result.
+
+<h1> Callback function </h1>
 
 Callbacks are the functions passed to another function as an argument and it helps to write asynchronous operation in JS.
 
@@ -178,6 +195,15 @@ When we are using callbacks, we face two issues:
 1. To avoid callback hell (Pyramid of doom) => We use promise chaining. This way our code expands vertically instead of horizontally. Chaining is done using '.then()'
 
 2. A very common mistake that developers do is not returning a value during chaining of promises. Always remember to return a value. This returned value will be used by the next .then()
+
+<h1> Garbage Collector </h1>
+
+1. Garbage Collection in JavaScript refers to the automatic process of reclaiming memory that is no longer in use, ensuring that your application doesn’t run out of memory during execution.
+
+2. Closures allocate a lot of memory which cannot be deleted so this acts as a disadvantage.
+
+   Mark: The garbage collector “marks” all objects that are accessible.
+   Sweep: It removes (or “sweeps”) objects that are not marked, freeing up memory.
 
 <h1> Shallow Copy Vs Deep Copy  </h1>
 
@@ -249,16 +275,6 @@ It relies on the import and export statements to detect if code modules are expo
 
 In modern JavaScript applications, we use module bundlers (e.g., webpack or Rollup) to automatically remove dead code when bundling multiple JavaScript files into single files. This is important for preparing code that is production ready, for example with clean structures and minimal file size.
 
-<h1> Why function called first class citizen ? </h1>
-
-Functions can be ->
-
-     a) assigned to a variable </br>
-     b) passed as an argument </br>
-     c) return as a value </br>
-     d) used as a property in object </br>
-     e) used as item in arrays
-
 <h1> Shadowing in JS</h1>
 
 when a variable is declared in a certain scope having the same name defined on its outer scope and when we call the variable from the inner scope, the value assigned to the variable in the inner scope is the value that will be stored in the variable in the memory space. This is known as Shadowing or Variable Shadowing.
@@ -272,3 +288,59 @@ when a variable is declared in a certain scope having the same name defined on i
 2. Without closure the var reference gives the latest value as it does not retain the original value but rather has the reference so any update in value after timeout will be shown.
 
 3. If we use let/const because they have block scope, every time a new copy of variable is attached, thus this can be done without closure.
+
+![SetTimeout](SetTimeout.png)
+
+4. The setTimeout function stores it in the callback queue which is executed only after call stack is empty, even if setTimeout is set to 0ms.
+
+5. setTimeout ensures that minimum it will take the time mentioned because it may be paused due to call stack not empty.
+
+<h1> Why function called first class citizen ? </h1>
+
+Ability to be used like values
+
+Functions can be ->
+
+     a) assigned to a variable </br>
+     b) passed as an argument </br>
+     c) return as a value </br>
+     d) used as a property in object </br>
+     e) used as item in arrays
+
+<h1>function statement or function declaration</h1>
+
+1.  function statement or function declaration
+
+             function one(){
+               console.log("Example of function statement") // can be hoisted
+             }
+
+2.  function Expression
+
+             var exp =function two(){
+               console.log("Example of function expression") // cannot be hoisted
+             }
+
+<h1> Function Constructor </h1>
+
+1.  The JavaScript Function() constructor is used to create new function objects dynamically.
+
+2.  One notable characteristic of functions created with the Function() constructor is that they have a global scope, meaning they are accessible from anywhere in the code.
+
+                   var variable = new Function(arg1, arg2..., Function Body)
+
+<h1> JS Engine </h1>
+
+1.  JS runtime environment contains all elements required to run JS.
+
+         Process : Parsing ---> Compilation -----> Execution.
+
+2.  Parsing breaks code into tokens and converts it into AST(Abstract Syntax Tree).
+
+3.  Modern JS engine follows JIT compilation, it interprets while it optimises code as much as it can.
+
+4.  Execution and Compilation are done together.
+
+5.  Execution has Garbage collector and other optimisation such as inlining, copy elusion, inline caching etc.
+
+![JS_Engine](JS_Engine.png)
