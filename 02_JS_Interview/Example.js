@@ -50,6 +50,83 @@ api.createOrder(cart, () => {
 });
 
 
+// Topic //     fetch api using promise
+
+const GITHUB_API = "https://api.github.com/users/Quirkyabhi97"
+let responsePromise = fetch(GITHUB_API);
+
+//console.log(responsePromise.status);
+
+responsePromise.then((result)=>{
+   console.log("promise resolved",result.status)
+},
+(error)=>{
+  console,log("promise rejected",error);
+}
+)
+
+// Topic //    Ecommerce using promise chaining and Error handling
+
+const cartNew = ["pant","shirt","shoes"];
+
+   // producer part of promise
+let createOrderNew = function(cartNew){
+  let pr = new Promise((resolve,reject)=>{     ////promise creation using promise constructor
+  
+    if(cartNew.length==0){
+      const err = new Error("No items present in cart") //new error created using Error constructor
+      reject(err)
+    }
+
+  else{
+    const orderId = 12345;
+    setTimeout(()=>{
+      resolve(orderId);
+    },5000)
+    
+  }
+  }) 
+
+  return pr;
+}
+
+let createPaymentNew = function(orderId){
+  console.log("Enter your Card details for order", orderId)
+
+  return new Promise((resolve,reject)=>{
+    if(!orderId){
+      const err = new Error("Order Id not found")
+      reject("Payment failed with error :",err);
+    }
+    else{
+      resolve("payment successful");
+    }
+    
+  })
+}
+
+
+      //consumer part of promise
+      let promise = createOrderNew(cartNew); //createOrder api returns a promise to be used later by payment api containing order id
+
+      promise
+      .then((orderId)=>{
+        console.log(orderId);
+      return orderId; //always use "return" statement in promise chain
+      })
+      .then((orderId)=>{
+        return createPaymentNew(orderId);
+      })
+      .then((paymentStatus)=>{
+        console.log(paymentStatus);
+      })
+      .catch((err)=>{
+        console.log(err.message);
+      })
+
+     
+      
+
 
 // Topic // 1.1) deep copy using spread operator
 

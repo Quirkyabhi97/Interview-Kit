@@ -190,11 +190,28 @@ When we are using callbacks, we face two issues:
                                createPayment(orderId)
                              })
 
-<h1> Promises Chaining </h1>
+<h1> Promises Chaining / Error Handling</h1>
 
 1. To avoid callback hell (Pyramid of doom) => We use promise chaining. This way our code expands vertically instead of horizontally. Chaining is done using '.then()'
 
 2. A very common mistake that developers do is not returning a value during chaining of promises. Always remember to return a value. This returned value will be used by the next .then()
+
+3. Promise can be created using a new Promise() constructor function.
+
+       let promise = new Promise((resolve,reject)=>{})
+
+4. An error can also be created using new Error() constructor function.
+
+       let err = new Error("Error found")
+
+5. There is also .catch() which is used to attach a failure callback function that handles any error that pops up during the execution of promise chain.
+
+6. .catch only handles error of .then() that are present above it.
+ If there is any .then() below it, catch will not handle any error for that.
+
+7. It can be useful in a way if we want to catch error for a particular portion of a chain.
+
+8. We can have multiple catch based on requirement and then a general catch at the end.
 
 <h1> Garbage Collector </h1>
 
