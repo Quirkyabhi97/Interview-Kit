@@ -337,3 +337,7 @@ function timeoutExample(){
 //Ques  -> Write a function to find the first non-repeating character in a string
 
 // Example -> console.log(firstNonRepeatingChar("swiss")); // Output: w
+
+// reverse a string without using string
+
+//check if an object is empty

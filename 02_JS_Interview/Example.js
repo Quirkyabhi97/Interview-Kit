@@ -1,12 +1,12 @@
 // Topic -1//Closure
 
-function outer(){
+function outer() {
   let outerVar = 10;
-  function inner(){
-  console.log("Accessing outerVar using closure", outerVar)
+  function inner() {
+    console.log("Accessing outerVar using closure", outerVar);
+  }
+  inner();
 }
-inner();
-} 
 
 outer();
 //  Callback as a parameter
@@ -34,10 +34,10 @@ setTimeout(() => {
 let cart = ["Shirt", "Pant", "Shoes"];
 
 let api = {
-  createOrder : createOrder=()=>{
+  createOrder: (createOrder = () => {
     console.log("OrderCreated");
-  }
-}
+  }),
+};
 
 api.createOrder(cart, () => {
   //code grows horizontally instead of vertically
@@ -49,84 +49,142 @@ api.createOrder(cart, () => {
   });
 });
 
-
 // Topic //     fetch api using promise
 
-const GITHUB_API = "https://api.github.com/users/Quirkyabhi97"
+const GITHUB_API = "https://api.github.com/users/Quirkyabhi97";
 let responsePromise = fetch(GITHUB_API);
 
 //console.log(responsePromise.status);
 
-responsePromise.then((result)=>{
-   console.log("promise resolved",result.status)
-},
-(error)=>{
-  console,log("promise rejected",error);
-}
-)
+responsePromise.then(
+  (result) => {
+    console.log("promise resolved", result.status);
+  },
+  (error) => {
+    console.log("promise rejected", error);
+  }
+);
 
 // Topic //    Ecommerce using promise chaining and Error handling
 
-const cartNew = ["pant","shirt","shoes"];
+const cartNew = ["pant", "shirt", "shoes"];
 
-   // producer part of promise
-let createOrderNew = function(cartNew){
-  let pr = new Promise((resolve,reject)=>{     ////promise creation using promise constructor
-  
-    if(cartNew.length==0){
-      const err = new Error("No items present in cart") //new error created using Error constructor
-      reject(err)
+// producer part of promise
+let createOrderNew = function (cartNew) {
+  let pr = new Promise((resolve, reject) => {
+    ////promise creation using promise constructor
+
+    if (cartNew.length == 0) {
+      const err = new Error("No items present in cart"); //new error created using Error constructor
+      reject(err);
+    } else {
+      const orderId = 12345;
+      setTimeout(() => {
+        resolve(orderId);
+      }, 5000);
     }
-
-  else{
-    const orderId = 12345;
-    setTimeout(()=>{
-      resolve(orderId);
-    },5000)
-    
-  }
-  }) 
+  });
 
   return pr;
-}
+};
 
-let createPaymentNew = function(orderId){
-  console.log("Enter your Card details for order", orderId)
+let createPaymentNew = function (orderId) {
+  console.log("Enter your Card details for order", orderId);
 
-  return new Promise((resolve,reject)=>{
-    if(!orderId){
-      const err = new Error("Order Id not found")
-      reject("Payment failed with error :",err);
-    }
-    else{
+  return new Promise((resolve, reject) => {
+    if (!orderId) {
+      const err = new Error("Order Id not found");
+      reject("Payment failed with error :", err);
+    } else {
       resolve("payment successful");
     }
-    
+  });
+};
+
+//consumer part of promise
+let promise = createOrderNew(cartNew); //createOrder api returns a promise to be used later by payment api containing order id
+
+promise
+  .then((orderId) => {
+    console.log(orderId);
+    return orderId; //always use "return" statement in promise chain
   })
-}
+  .then((orderId) => {
+    return createPaymentNew(orderId);
+  })
+  .then((paymentStatus) => {
+    console.log(paymentStatus);
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 
+// Topic // Promise API(All,AllSettled,Any,Race)
 
-      //consumer part of promise
-      let promise = createOrderNew(cartNew); //createOrder api returns a promise to be used later by payment api containing order id
+let p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+   // resolve("Promise 1 successful");
+     reject("Promise 1 Failed");
+  },5000);
+});
 
-      promise
-      .then((orderId)=>{
-        console.log(orderId);
-      return orderId; //always use "return" statement in promise chain
-      })
-      .then((orderId)=>{
-        return createPaymentNew(orderId);
-      })
-      .then((paymentStatus)=>{
-        console.log(paymentStatus);
-      })
-      .catch((err)=>{
-        console.log(err.message);
-      })
+let p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    //resolve("Promise 2 successful");
+    reject("Promise 2 Failed");
+  },7000);
+});
 
-     
-      
+let p3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    //resolve("Promise 3 successful");
+     reject("Promise 3 Failed");
+  },3000);
+});
 
+// 1.1) Promise.all
+
+Promise.all([p1, p2, p3])
+  .then((res) => {
+    console.log("Response using Promise.all", res);
+  })
+  .catch((err) => {
+    console.error("Error using Promise.all",err);
+   // console.log(err.errors);
+  });
+
+// 1.2) Promise.allSettled
+
+Promise.allSettled([p1, p2, p3])
+  .then((res) => {
+    console.log("Response using Promise.allSettled", res);
+  })
+  .catch((err) => {
+    console.error("Error using Promise.allSettled",err);
+    //console.log(err.errors);
+  });
+
+// 1.3) Promise.race
+
+Promise.race([p1, p2, p3])
+  .then((res) => {
+    console.log("Response using Promise.race", res);
+  })
+  .catch((err) => {
+    console.error("Error using Promise.race",err);
+    //console.log(err.errors);
+  });
+
+// 1.1) Promise.any
+
+Promise.any([p1, p2, p3])
+  .then((res) => {
+    console.log("Response using Promise.any", res);
+  })
+  .catch((err) => { 
+    console.error("Error using Promise.any",err);
+    console.log(err.errors); //used to fetch aggregate errors
+  });
 
 // Topic // 1.1) deep copy using spread operator
 
@@ -266,20 +324,20 @@ pDetailsWithBind("Jaiselmer");
 
 // 4.4) polyfill for Function.prototype.map()
 
-Array.prototype.mapPolyfill = function(logicFunc){
+Array.prototype.mapPolyfill = function (logicFunc) {
   let Newarr = [];
-  let arr=this;
-    for(let i=0;i<arr.length;i++){
-        Newarr.push(logicFunc(arr[i]));
-    }
-    return Newarr;
-}
+  let arr = this;
+  for (let i = 0; i < arr.length; i++) {
+    Newarr.push(logicFunc(arr[i]));
+  }
+  return Newarr;
+};
 
-let radius = [3,4,5];
+let radius = [3, 4, 5];
 
-let area= function(rad){
-  return Math.PI*rad*rad;
-}
+let area = function (rad) {
+  return Math.PI * rad * rad;
+};
 
 console.log("area using map polyfill", radius.map(area));
 
@@ -349,21 +407,21 @@ shadowingExample();
 
 // Topic // function Constructor
 
-function counterConstructor(){
-  count = 0;
-  // With "this", the properties(count) would be local to the constructor and wouldn't be assigned to the object(counter) instances.Thus will give error when accessed
-  this.incrementCounter = function(){  
+function counterConstructor() {
+  let count = 0;
+  // With "this", the properties(count) would be local to the constructor and wouldn't be assigned to the object(counter) instances
+  // Thus will give error when accessed
+  this.incrementCounter = function () {
     //The use of "this" ensures that each new object created by the Person function gets its own instance of incrementCounter function.
     count++;
     console.log("increment Counter function called", count);
-  }
-  this.decrementCounter = function(){
+  };
+  this.decrementCounter = function () {
     count--;
     console.log("decrement Counter function called", count);
-  }
+  };
 }
 
 let counter = new counterConstructor();
 counter.incrementCounter();
 counter.decrementCounter();
-

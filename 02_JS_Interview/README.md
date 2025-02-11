@@ -27,17 +27,15 @@ For example of each topic please refer Example.js.
 
 3.  Arrow functions enact as variables and get "undefined" during the memory creation phase while functions actually get run.
 
-<h1> Hoisting  </h1>
-
-1. Function bundled with its lexical environment is known as a closure.
-
-2. Closures help retain references to variables that would otherwise be lost after the execution of the outer function.
+4.
 
 <h1> Closures </h1>
 
-1.  Function bundled with its lexical environment is known as a closure. Whenever function is returned, even if its vanished in execution context but still it remembers the reference it was pointing to
+1.  Function bundled with its lexical environment is known as a closure.
 
-2.  Closures can also be used for data hiding and encapsulation. So other code cannot access this value.
+2.  Closures help retain references to variables that would otherwise be lost after the execution of the outer function.
+
+3.  Closures can also be used for data hiding and encapsulation. So other code cannot access this value.
 
              uses of closures : a) curring
                                 b) memoize
@@ -198,20 +196,52 @@ When we are using callbacks, we face two issues:
 
 3. Promise can be created using a new Promise() constructor function.
 
-       let promise = new Promise((resolve,reject)=>{})
+   let promise = new Promise((resolve,reject)=>{})
 
 4. An error can also be created using new Error() constructor function.
 
-       let err = new Error("Error found")
+   let err = new Error("Error found")
 
 5. There is also .catch() which is used to attach a failure callback function that handles any error that pops up during the execution of promise chain.
 
 6. .catch only handles error of .then() that are present above it.
- If there is any .then() below it, catch will not handle any error for that.
+   If there is any .then() below it, catch will not handle any error for that.
 
 7. It can be useful in a way if we want to catch error for a particular portion of a chain.
 
 8. We can have multiple catch based on requirement and then a general catch at the end.
+
+<h1> Promise APIs </h1>
+
+  <h2> 1.1) Promise.All </h2>
+
+1. Promise.all handles multiple promises simultaneously, returning an array of results when all promises are fulfilled, and throwing an error if any promise fails.
+
+2. If any promise in Promise.all fails, the entire operation fails, and an error is thrown immediately without waiting for other promises.
+
+![Promise_All](Promise_All.png)
+
+ <h2> 1.2) Promise.AllSettled </h2>
+
+1.  Promise.allSettled waits for all promises to settle (whether fulfilled or rejected) before returning an array of results or errors, making it suitable for scenarios where partial failures are acceptable.
+
+![Promise_AllSettled](Promise_AllSettled.png)
+
+ <h2> 1.3) Promise.Race </h2>
+
+1.  Promise.race returns the result of the first settled promise, whether it's success or failure, making it ideal for scenarios where the fastest response is required.
+
+![Promise_Race](Promise_Race.png)
+
+ <h2> 1.4) Promise.Any </h2>
+
+1. Promise.any is similar to Promise.race but waits for the first successful promise rather than the first settled one, making it suitable for scenarios where success is prioritized over speed.
+
+2. Promise.any collects errors if all promises fail and returns an aggregated error array.
+
+![Promise_Any](Promise_Any.png)
+
+![Promise_Any_AllError](Promise_Any_AllError.png)
 
 <h1> Garbage Collector </h1>
 
@@ -337,6 +367,10 @@ Functions can be ->
              var exp =function two(){
                console.log("Example of function expression") // cannot be hoisted
              }
+
+<h1> Pure VS Impure Function </h1>
+
+
 
 <h1> Function Constructor </h1>
 
