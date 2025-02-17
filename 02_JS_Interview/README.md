@@ -243,6 +243,21 @@ When we are using callbacks, we face two issues:
 
 ![Promise_Any_AllError](Promise_Any_AllError.png)
 
+
+<h1> Async-Await </h1>
+
+1)  Async/await is syntactic sugar over promises, offering a more concise and readable way to handle asynchronous operations, but ultimately functioning similarly under the hood.
+
+2) Async always return a promise.
+
+3) Await can only used inside an async function.
+
+4) Can only write await keyword infront of a promise.
+
+5) JavaScript's async/await does not actually halt execution but rather suspends function execution until promises are resolved.
+
+6) Use try catch for Error handling and can also use  . Catch() method
+
 <h1> Garbage Collector </h1>
 
 1. Garbage Collection in JavaScript refers to the automatic process of reclaiming memory that is no longer in use, ensuring that your application doesn’t run out of memory during execution.

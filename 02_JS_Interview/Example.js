@@ -186,6 +186,59 @@ Promise.any([p1, p2, p3])
     console.log(err.errors); //used to fetch aggregate errors
   });
 
+// Topic // Async-Await
+
+const promise1 = new Promise((resolve,reject)=>{
+  setTimeout(()=>{
+      resolve("Promise 1 resolved value");
+  },3000)
+})
+
+const promise2 = new Promise((resolve,reject)=>{
+  setTimeout(()=>{
+      resolve("Promise 2 resolved value");
+  },6000)
+})
+
+let getValue = async function(){
+  console.log("Hello World of Promises");
+  
+  console.log("waiting for first promise"); //printed directly without wait
+  let val1 = await promise1;
+  console.log(val1);
+  
+  
+   let val2 = await promise2;
+  console.log(val2);
+  console.log("waiting for second promise"); //will wait for p2 to be resolved
+  
+  
+}
+getValue();
+
+// fetch API using Async-Await
+
+const GITHUB_API2 = "https://api.github.com/users/Quirkyabhi97";
+const INVALID_URL = "https://invalidurl.com"
+
+async function fetchApi(){
+  try{
+     let data = await fetch(GITHUB_API2);
+    //let data = await fetch(INVALID_URL);
+    console.log("status using async-await",data.status)
+    let jsonValue = await data.json();
+    console.log("response using async-await",jsonValue.name);
+  }
+  catch(err){
+    console.log(err);
+  }
+  
+}
+
+fetchApi(); // or fetchApi().catch((err)=>console.log(err));
+
+
+
 // Topic // 1.1) deep copy using spread operator
 
 let oldObj = { name1: "Abhi", age: 27 };
