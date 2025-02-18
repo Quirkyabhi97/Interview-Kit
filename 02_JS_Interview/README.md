@@ -130,6 +130,24 @@ Execution context has two component
                console.log(window.a);   //output=10
                console.log(this.a);     //output=10
 
+<h1> This Keyword </h1>
+
+1. "this" in global scope always points to the globalObject (globalObject depends on javascript runtime env)
+
+2. "this" in a function depends on 2 things
+   a. strict / non strict mode (in strict mode, "this" is undefined, in non strict mode, "this substitution" takes place and "this" points to globalObject)
+   b. how the function is being invoked (if we invoke the function using the global object in strict mode, then "this" will point to that globalObject)
+
+3. "this" in a method always points to the object that is used to invoke the method.
+
+4. call, apply & bind are used to share a method with another object (hence the "this" keyword reference would also change accordingly)
+
+5. "this" inside arrow function refers to the "enclosing lexical context"
+
+6. "this" in DOM points to the HTML element itself on which it is being used
+
+![This_Keyword](This_Keyword.png)
+
 <h1> Higher Order function </h1>
 
 A higher-order function is a function that does one or both of the following:
@@ -243,20 +261,19 @@ When we are using callbacks, we face two issues:
 
 ![Promise_Any_AllError](Promise_Any_AllError.png)
 
-
 <h1> Async-Await </h1>
 
-1)  Async/await is syntactic sugar over promises, offering a more concise and readable way to handle asynchronous operations, but ultimately functioning similarly under the hood.
+1.  Async/await is syntactic sugar over promises, offering a more concise and readable way to handle asynchronous operations, but ultimately functioning similarly under the hood.
 
-2) Async always return a promise.
+2.  Async always return a promise.
 
-3) Await can only used inside an async function.
+3.  Await can only used inside an async function.
 
-4) Can only write await keyword infront of a promise.
+4.  Can only write await keyword infront of a promise.
 
-5) JavaScript's async/await does not actually halt execution but rather suspends function execution until promises are resolved.
+5.  JavaScript's async/await does not actually halt execution but rather suspends function execution until promises are resolved.
 
-6) Use try catch for Error handling and can also use  . Catch() method
+6.  Use try catch for Error handling and can also use . Catch() method
 
 <h1> Garbage Collector </h1>
 
@@ -384,8 +401,6 @@ Functions can be ->
              }
 
 <h1> Pure VS Impure Function </h1>
-
-
 
 <h1> Function Constructor </h1>
 
