@@ -68,6 +68,15 @@ The useRef hook in React is a powerful tool that allows you to persist values be
 
 ![useRef](useRef_2.png)
 
+<h1> Rules of Hooks </h1>
+
+1) Do not call Hooks inside conditions or loops.
+2) Do not call Hooks after a conditional return statement.
+3) Do not call Hooks in event handlers.
+4) Do not call Hooks in class components.
+5) Do not call Hooks inside functions passed to useMemo, useReducer, or useEffect.
+6) Do not call Hooks inside try/catch/finally blocks.
+
 
 
 <h1> 2) Higher Order Components (HOC) </h1>
