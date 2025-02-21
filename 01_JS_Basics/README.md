@@ -105,7 +105,7 @@ h) array.filter -> The filter() method takes each element in an array and it app
 
 i) array.reduce -> The reduce() method reduces an array of values down to just one value.
 
-![Difference](Map_Filter_Reduce.png)
+![Difference](Images/Map_Filter_Reduce.png)
 
 <h1>10) Objects / Number of ways to create Objects </h1>
 

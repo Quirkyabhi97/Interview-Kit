@@ -62,11 +62,11 @@ The useRef hook in React is a powerful tool that allows you to persist values be
 
 <h3>case a)  It is particularly useful for accessing and manipulating DOM elements directly. </h3>
 
-![useRef](useRef_1.png)
+![useRef](./Images/useRef_1.png)
 
 <h3>case b)Persisting Value across re-renders.</h3>
 
-![useRef](useRef_2.png)
+![useRef](./Images/useRef_2.png)
 
 <h1> Rules of Hooks </h1>
 
@@ -91,7 +91,7 @@ How?: Wrap a component with a function that adds or modifies its behavior.
 
 <h1> 3) Life Cycle Methods of Components </h1>
 
-![Lifecyce](<Lifecycle Method.png>)
+![Lifecycle](./Images/Lifecycle_Method.png)
 
 The React lifecycle is divided into three main phases:
 
@@ -130,6 +130,17 @@ This is the final phase when a component is removed from the DOM.
 
 a) componentWillUnmount() -> this function gets invoked once before the component is removed from the page and this denotes the end of the lifecycle.
 
+<h1>  Virtual DOM </h1>
+
+ReactJS Virtual DOM is an in-memory representation of the actual DOM.
+                                     
+    Workflow : 
+
+    Initial Rendering -> State and Props Changes -> Comparison Using Diff Algorithm 
+    -> Reconciliation Process -> Update to the Real DOM
+  
+               
+
 <h1>  Reconciliation & Diffing Algorithm </h1>
 
 Reconciliation is a process that occurs between the two phases of rendering. It covers how the virtual DOM gets synced with the real DOM.
@@ -142,14 +153,20 @@ So, React compares the trees and finds the least number of operations to transfo
  It tries to differentiate the trees to update only to the affected nodes in the real DOM.
 
 
-<h1>  Prop Drilling </h1>
+<h1>  Prop Drilling / Lifting State Up</h1>
 Sometimes while developing React applications, there is a need to pass data from a component i.e.
 higher in the hierarchy to a component that is deeply nested. To pass data between such components, 
 we pass props from a source component and keep passing the prop to the next component in the 
 hierarchy till we reach the deeply nested component. </br>
 
-Disadvantage :  The components that should otherwise be not aware of the 
-data have access to the data 
+           Disadvantage :  The components that should otherwise be not aware of the 
+                           data have access to the data 
+
+lifting state up occurs when state is placed in a common ancestor (or parent) of child components. Because each child component has access to the parent they will then have access to state (via prop drilling ). If state is updated inside the child component it is lifted back up to the parent container.
+
+![PropDrilling_&_LiftingStateUp](./Images/PropDrilling_&_LiftingStateUp.png)
+
+
 
 <h1> why are useState,useEffect imported in {} in React.</h1>
 
@@ -161,7 +178,7 @@ When importing, javascript sees two things:
 
 Named properties are imported using {}, while the default export does not use {}
 
-![import_Rules](import_Rules.png)
+![import_Rules](./Images/import_Rules.png)
 
 <h1> Controlled Vs Uncontrolled Component </h1>
 
@@ -170,11 +187,11 @@ Named properties are imported using {}, while the default export does not use {}
 <h6>State Manipulation :</h6> The Value of the input field is controlled by React State (useState or this.state in class component)
 <h6>Event Handler :</h6> Changes to the input field(like typing into a text field) are handled by React event handler(onChange, OnBlur, etc)
 
- <input
-  name="name"
-  value={name}
-  onChange={(e) => setName(e.target.value)
- }
+              <input
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)
+              }>
 
 
 
@@ -183,11 +200,21 @@ Named properties are imported using {}, while the default export does not use {}
 <h6>Direct DOM Manipulation :</h6> The Value of the input field is controlled by DOM (Documenr.getElementById)
 <h6>Event Handler :</h6> Changes to the input field(like typing into a text field) are handled by DOM events (onChange, OnBlur, etc)
 
- <input
-  type="text"
-  name="name"
-  ref={inputRef}
- />
+              <input
+              type="text"
+              name="name"
+              ref={inputRef}/>
+
+<h1>  State vs Props </h1>          
+
+State -> State is a built-in object in React components that holds data or information about the component.
+
+Props -> Props (short for Properties) are used to pass data from a parent component to a child component.
+
+![import_Rules](./Images/State_VS_Props.png)
+ 
+
+ 
 
 <h1>  State management (all about data) </h1>
 <h1>  Redux or Zustand: </h1>

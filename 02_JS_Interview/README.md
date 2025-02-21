@@ -70,9 +70,9 @@ Execution context has two component
 
 5.  CALL STACK maintains the ORDER of execution of Execution Contexts. It CREATES Execution Context whenever a Program starts or a Function is invoked and it pops out the Execution Context when a Function or Program ENDS.
 
-![Execution](Execution_Context_1.png)
+![Execution](Images/Execution_Context_1.png)
 
-![Execution](Execution_Context_2.png)
+![Execution](Images/Execution_Context_2.png)
 
 <h1> Event Loop/ Web Api</h1>
 
@@ -84,7 +84,7 @@ Execution context has two component
 
 3.  Web APIs refer to sets of functionalities provided by the browser environment to interact with web-related features and resources.
 
-![Event_Loop](Event_Loop.png)
+![Event_Loop](Images/Event_Loop.png)
 
 <h1> Lexical Environment / Scope Chain </h1>
 
@@ -98,7 +98,7 @@ Execution context has two component
 
 5. The mechanism of searching variables in the subsequent lexical environments is known as Scope Chain. If a variable is not found anywhere, then we say that the variable is not present in the scope chain.
 
-![Scope_Chain](ScopeChain.jpg)
+![Scope_Chain](Images/ScopeChain.jpg)
 
 <h1> Block Scope  </h1>
 
@@ -146,7 +146,7 @@ Execution context has two component
 
 6. "this" in DOM points to the HTML element itself on which it is being used
 
-![This_Keyword](This_Keyword.png)
+![This_Keyword](Images/This_Keyword.png)
 
 <h1> Higher Order function </h1>
 
@@ -237,19 +237,19 @@ When we are using callbacks, we face two issues:
 
 2. If any promise in Promise.all fails, the entire operation fails, and an error is thrown immediately without waiting for other promises.
 
-![Promise_All](Promise_All.png)
+![Promise_All](Images/Promise_All.png)
 
  <h2> 1.2) Promise.AllSettled </h2>
 
 1.  Promise.allSettled waits for all promises to settle (whether fulfilled or rejected) before returning an array of results or errors, making it suitable for scenarios where partial failures are acceptable.
 
-![Promise_AllSettled](Promise_AllSettled.png)
+![Promise_AllSettled](Images/Promise_AllSettled.png)
 
  <h2> 1.3) Promise.Race </h2>
 
 1.  Promise.race returns the result of the first settled promise, whether it's success or failure, making it ideal for scenarios where the fastest response is required.
 
-![Promise_Race](Promise_Race.png)
+![Promise_Race](Images/Promise_Race.png)
 
  <h2> 1.4) Promise.Any </h2>
 
@@ -257,9 +257,9 @@ When we are using callbacks, we face two issues:
 
 2. Promise.any collects errors if all promises fail and returns an aggregated error array.
 
-![Promise_Any](Promise_Any.png)
+![Promise_Any](Images/Promise_Any.png)
 
-![Promise_Any_AllError](Promise_Any_AllError.png)
+![Promise_Any_AllError](Images/Promise_Any_AllError.png)
 
 <h1> Async-Await </h1>
 
@@ -358,7 +358,7 @@ In modern JavaScript applications, we use module bundlers (e.g., webpack or Roll
 
 when a variable is declared in a certain scope having the same name defined on its outer scope and when we call the variable from the inner scope, the value assigned to the variable in the inner scope is the value that will be stored in the variable in the memory space. This is known as Shadowing or Variable Shadowing.
 
-![Shadowing](Shadowing.png)
+![Shadowing](Images/Shadowing.png)
 
 <h1> Set Timeout </h1>
 
@@ -368,7 +368,7 @@ when a variable is declared in a certain scope having the same name defined on i
 
 3. If we use let/const because they have block scope, every time a new copy of variable is attached, thus this can be done without closure.
 
-![SetTimeout](SetTimeout.png)
+![SetTimeout](Images/SetTimeout.png)
 
 4. The setTimeout function stores it in the callback queue which is executed only after call stack is empty, even if setTimeout is set to 0ms.
 
@@ -424,4 +424,4 @@ Functions can be ->
 
 5.  Execution has Garbage collector and other optimisation such as inlining, copy elusion, inline caching etc.
 
-![JS_Engine](JS_Engine.png)
+![JS_Engine](Images/JS_Engine.png)
