@@ -212,19 +212,41 @@ State -> State is a built-in object in React components that holds data or infor
 Props -> Props (short for Properties) are used to pass data from a parent component to a child component.
 
 ![import_Rules](./Images/State_VS_Props.png)
- 
 
- 
+
+
+<h1> Cross Origin Resourse Sharing(CORS) </h1>
+
+CORS or cross-origin resource sharing is a mechanism that allows memory resources (e.g., fonts, JavaScript, etc) on a webpage to be requested from another domain outside the domain from which the resource originated.
+
+Before CORS, webpages could only make requests to the same domain that served the web page,
+a practice known as the “same-origin policy.”
+
+    HTTP/1.1 200 OK
+    Access-Control-Allow-Origin: https://malicious-website.com
+    Access-Control-Allow-Credentials: true 
+
+<h1> content delivery network (CDN) </h1>
+
+A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
+
+      Netflix is a good CDN example. 
+
+CDNs rely on a process called “caching” that temporarily stores copies of files in data centers across the globe, allowing you to access internet content from a server near you. Content delivered from a server closest to you reduces page load times and results in a faster, high-performance web experience
+  
+     Locations that store cached video content are known as points of presence (PoPs).
+
+Note:- We can add React into our HTML project by injecting CDN links in it.
+
+        
 
 <h1>  State management (all about data) </h1>
 <h1>  Redux or Zustand: </h1>
 <h1>  Custom Hooks: </h1>
 <h1>  Lazy Loading: </h1>
-<h1>  Virtual DOM: </h1>
 <h1>  SSR vs CSR (important): </h1>
 <h1>  Routing (Role-based access control-RBAC): </h1>
 <h1>  Testing: </h1>
-
 <h1>  Async Tasks:</h1>
 <h1>  Reusability, Readability, modularity, testability (Coding Practices) </h1>
 <h1>  Styling: </h1>
