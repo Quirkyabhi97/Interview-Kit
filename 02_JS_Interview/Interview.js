@@ -334,6 +334,41 @@ function timeoutExample(){
 
   console.log(timeoutExample());
 
+  // ques 21 const input = "hello world"         output {h:1, e: 1, l:3, o:2, w:1, r:1, d:1}
+
+const input = "hello world";
+
+const resultChar = input.split('').reduce((acc, char) => {
+  acc[char] = (acc[char] || 0) + 1;
+  return acc;
+}, {});
+
+console.log(resultChar);
+
+//ques 22 create a function will take input product id and value 
+//{if product id exists in that json will increase the qty and value else it will create another object of cart}
+// ex - addCart(4, 10) // 4 is product id and 10 is value
+
+const cart = [{product_id: 1, qty: 1, value: 10}, {product_id: 2, qty: 1, value: 100}]
+
+function addCart(productId, value) {
+  // Find the product in the cart by product_id
+  const product = cart.find(item => item.product_id === productId);
+
+  if (product) {
+    // If product exists, increase its quantity and value
+    product.qty += 1;
+    product.value += value;
+  } else {
+    // If product doesn't exist, add a new object to the cart
+    cart.push({ product_id: productId, qty: 1, value: value });
+  }
+}
+
+addCart(4, 10);  // Add product with id 4 and value 10
+
+console.log(cart);
+
 //Ques  -> Write a function to find the first non-repeating character in a string
 
 // Example -> console.log(firstNonRepeatingChar("swiss")); // Output: w
