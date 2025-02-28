@@ -229,6 +229,12 @@ for (var i = 0; i < 3; i++) {
   setTimeout(() => console.log("Hi", i), 1000);
 } //All will be printed after 1000 ms
 
+//Ques 18 output of following
+const objNew = {};
+objNew['1'] = 'ONE';
+objNew[1] = 'one';
+console.log(objNew); 
+
 //Ques 18 - fetch object whose id and name does not repeat
 
 let originalArr = [
@@ -260,7 +266,7 @@ console.log("Unique array is ", uniqueArr);
 console.log(seenIds);
 console.log(seenNames);
 
-////solution 2 -> using HOC i.e. reduce
+//solution 2 -> using HOC i.e. reduce
 
 let uniqueArr2 = originalArr.reduce((acc, item) => {
   // Manually check if both id and name have not been seen before
@@ -317,6 +323,27 @@ newArr.reduce((acc, curr) => {
 
 console.log(newArr2);
 
+//Ques 19 //output "one two two three three four five five five six seven"
+ const inputStr = "seven five two three four five one three five six two"
+ 
+const arrInput = inputStr.split(" ");
+
+const objArr = {
+    "one" : 1,
+    "two" : 2,
+    "three" : 3,
+    "four" : 4,
+    "five" : 5 ,
+    "six" : 6,
+    "seven" : 7
+}
+
+const sortedArr = arrInput.sort((a,b)=>objArr[a]-objArr[b]).join(" ")
+
+console.log(sortedArr);
+
+
+
 //Ques 19 - Second highest number in array
 
 //Ques 20 - Print 10,20,30,40,50 after each second
@@ -368,6 +395,25 @@ function addCart(productId, value) {
 addCart(4, 10);  // Add product with id 4 and value 10
 
 console.log(cart);
+
+//Ques Get output based on frequency ,OUTPUT [ 'apple', 'apple', 'apple', 'banana', 'banana', 'orange' ]
+const arr = ["apple", "banana", "apple", "orange", "banana", "apple"];
+
+// Step 1: Count the frequency of each element
+const frequency = arr.reduce((acc, item) => {
+  acc[item] = (acc[item] || 0) + 1;
+  return acc;
+}, {});
+
+// Step 2: Rebuild the array based on frequency
+const output = [];
+for (let item in frequency) {
+  for (let i = 0; i < frequency[item]; i++) {
+    output.push(item);
+  }
+}
+
+console.log(output);
 
 //Ques  -> Write a function to find the first non-repeating character in a string
 
