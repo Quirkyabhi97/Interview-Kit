@@ -300,28 +300,7 @@ function sum(a) {
 
 console.log("using recursive approach solution is " + sum(1)(2)(3)(4)());
 
-// merge,sort,remove duplicates, and remove "_"
 
-let arr_1 = [9, 4, 7, 1, 2, 10];
-
-let arr_2 = [9, 2, 3, 87, 20, 11, 5, "_", "_"];
-
-let newArr = arr_1.concat(arr_2);
-
-newArr.sort((a, b) => b - a);
-
-console.log(newArr);
-
-let newArr2 = [];
-
-newArr.reduce((acc, curr) => {
-  if (!acc.includes(curr)) {
-    newArr2.push(curr);
-  }
-  return newArr2;
-}, []);
-
-console.log(newArr2);
 
 //Ques 19 //output "one two two three three four five five five six seven"
  const inputStr = "seven five two three four five one three five six two"
@@ -361,16 +340,7 @@ function timeoutExample(){
 
   console.log(timeoutExample());
 
-  // ques 21 const input = "hello world"         output {h:1, e: 1, l:3, o:2, w:1, r:1, d:1}
-
-const input = "hello world";
-
-const resultChar = input.split('').reduce((acc, char) => {
-  acc[char] = (acc[char] || 0) + 1;
-  return acc;
-}, {});
-
-console.log(resultChar);
+ 
 
 //ques 22 create a function will take input product id and value 
 //{if product id exists in that json will increase the qty and value else it will create another object of cart}
