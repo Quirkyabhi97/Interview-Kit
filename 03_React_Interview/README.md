@@ -85,9 +85,15 @@ What?: Functions that take a component and return an enhanced version.
 
 When?: Reuse component logic, share code, or manipulate component behavior.
 
+How?: Wrap a component with a function that adds or modifies its behavior.
+
+      const EnhancedComponent = higherOrderComponent(OriginalComponent);
+
 Why?: Promotes code reusability and separation of concerns.
 
-How?: Wrap a component with a function that adds or modifies its behavior.
+![HOC](./Images/HOC.png)   
+
+</br>
 
 <h1> 3) Life Cycle Methods of Components </h1>
 
