@@ -36,9 +36,15 @@ useEffect(() => {
 
 Case a) useEffect as componentDidMount
 
+![componentDidMount](./Images/ComponentDidMount.png)
+
 Case b) useEffect as componentDidUpdate
 
+![componentDidUpdate](./Images/ComponentDidUpdate.png)
+
 Case c) useEffect as componentWillUnmount
+
+![componentWillUnmount](./Images/ComponentWillUnmount.png)
 
 <h1> 1.3)  useContext </h1>
 
@@ -248,8 +254,16 @@ Note:- We can add React into our HTML project by injecting CDN links in it.
 
 <h1>  State management (all about data) </h1>
 <h1>  Redux or Zustand: </h1>
-<h1>  Custom Hooks: </h1>
-<h1>  Lazy Loading: </h1>
+<h1>  Custom Hooks </h1>
+<h1>  Lazy Loading </h1>
+
+React Lazy Loading is a technique that defers the loading of components until they are actually needed. 
+
+This can help to improve the performance of React applications by reducing the amount of code that needs to be loaded at once.
+
+![LazyLoading](./Images/LazyLoading.png)   
+
+
 <h1>  SSR vs CSR (important): </h1>
 <h1>  Routing (Role-based access control-RBAC): </h1>
 <h1>  Testing: </h1>
