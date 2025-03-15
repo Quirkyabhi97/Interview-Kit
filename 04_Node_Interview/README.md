@@ -4,10 +4,11 @@ The event loop is what allows Node.js to perform non-blocking I/O operations —
 
 
 <h1> 2) Streams </h1>
+
 -> Used to handling I/O operations( data processing, manipulation, and transfer )
 -> Streams are a powerful feature that allows handling data in chunks rather than loading it all at once.
 
-const stream = require('stream');
+           const stream = require('stream');
 
 Time Efficient: We don’t have to wait until entire file has been transmitted. We can start processing data as soon as we have it.
 Memory Efficient: We don’t have to load huge amount of data in memory before we start processing.
@@ -148,7 +149,7 @@ By default, Node.js is single-threaded, which means it runs on a single CPU core
 
 With clustering, you can create multiple instances of the NodeJS process, known as workers, each running on a separate CPU core and share the same port number.
 
-![clustering](./Images/clustering.png) 
+![clustering](./Images/Clustering.png) 
 
 Working->
 
