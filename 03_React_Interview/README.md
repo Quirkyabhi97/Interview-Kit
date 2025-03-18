@@ -68,6 +68,15 @@ Note that the useCallback hook memoizes the function itself, not its return valu
 
 Manages complex state logic with a reducer function.
 
+->Reducer function: This function handles the state updates. It receives two arguments: state (the current state) and action (an object describing the update, usually with a type property). The reducer returns the updated state based on the action type.
+
+->useReducer: It takes two arguments: the reducer function (counterReducer) and the initial state ({ count: 0 }).
+It returns the current state and a dispatch function to send actions.
+
+->dispatch: We use this function to send actions, like { type: 'increment' } or { type: 'decrement' }, to update the state.
+
+![useReducer](./Images/useReducer.png)
+
 <h1> 1.7)  useRef </h1>
 
 The useRef hook in React is a powerful tool that allows you to persist values between renders without causing a re-render.
