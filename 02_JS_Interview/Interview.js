@@ -448,3 +448,52 @@ let obj = Object.create(emp)
 //here obj.code will be able to access as we have created a prototype of emp and thus we will be able to inherit property of emp inside obj
 
 console.log(obj.code)
+
+// max character and count in js
+
+function getMaxCharAndCount(str) {
+  const charCount = {};
+  
+  // Count the occurrences of each character in the string
+  for (let char of str) {
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  // Find the character with the highest count
+  let maxChar = '';
+  let maxCount = 0;
+
+  for (let char in charCount) {
+    if (charCount[char] > maxCount) {
+      maxChar = char;
+      maxCount = charCount[char];
+    }
+  }
+
+  return { maxChar, maxCount };
+}
+
+// Example usage:
+const resultMaxCount = getMaxCharAndCount("hello world");
+console.log(resultMaxCount); // { maxChar: 'l', maxCount: 3 }
+
+//Add id to each object in array
+
+function addIdToArray(array) {
+  return array.map((item, index) => {
+    // Directly add the 'id' property to each object
+    item.id = index + 1;
+    return item;
+  });
+}
+
+// Example usage:
+const array = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 30 },
+  { name: "Charlie", age: 35 }
+];
+
+const resultObj = addIdToArray(array);
+console.log(resultObj);
+
