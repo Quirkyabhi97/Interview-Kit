@@ -1,6 +1,24 @@
 <h1> 1) Event Loop  </h1>
 
-The event loop is what allows Node.js to perform non-blocking I/O operations — despite the fact that a single JavaScript thread is used by default — by offloading operations to the system kernel whenever possible.
+The event loop is a core feature of Node.js that allows it to perform non-blocking I/O operations. 
+
+Node.js is single-threaded and uses the event loop to handle multiple operations concurrently. 
+
+It operates in phases where the system checks for events, executes callbacks, and moves on to the next phase.
+
+Event Loop Phases----->
+
+              Timers Phase: Executes callbacks from setTimeout() and setInterval().
+
+              I/O Callbacks Phase: Executes I/O callbacks like fs.read() or fs.write().
+
+              Idle, Prepare Phase: Prepares for the next phase.
+
+              Poll Phase: Retrieves new events and executes their callbacks. If no events are pending, it waits for new events.
+
+              Check Phase: Executes callbacks from setImmediate().
+
+              Close Callbacks Phase: Executes close callbacks like socket.on('close').
 
 
 <h1> 2) Streams </h1>
@@ -11,6 +29,7 @@ The event loop is what allows Node.js to perform non-blocking I/O operations —
            const stream = require('stream');
 
 Time Efficient: We don’t have to wait until entire file has been transmitted. We can start processing data as soon as we have it.
+
 Memory Efficient: We don’t have to load huge amount of data in memory before we start processing.
 
 4 types -> a) Readable, Writable, Duplex , Transform
@@ -35,7 +54,15 @@ c) Error-handling middleware
 d) Built-in middleware
 e) Third-party middleware
 
-<h1> 4) Require vs Import</h1>
+<h1> 4 Express JS</h1>
+
+Express.js is a minimal and flexible web application framework built on top of Node.js. 
+
+It simplifies the process of handling HTTP requests, routing, middleware integration, and managing server-side functionality. 
+
+Express is widely used to build APIs and server-side applications.
+
+<h1> 5) Require vs Import</h1>
 
 1. require: The CommonJS Syntax. It is used to import modules from external files and libraries. Here's an example:
 
@@ -65,23 +92,25 @@ Key characteristics of import:
 
 
 
-<h1> 5) Event Emitter</h1>
+<h1> 6) Event Emitter</h1>
 
 Event emitters are objects which keep track of events and all the functions attached to it. Whenever a event is emitted all the functions attached to that particular events are emitted synchronously. 
 
 ![EventEmitter](./Images/EventEmitter.png) 
 
-EventEmitter object exposes two function .on() and .emit(). We can attach multiple functions to the same event and they are called synchronously one by one in the order they were registered.
+EventEmitter object exposes two function .on() and .emit(). 
+
+We can attach multiple functions to the same event and they are called synchronously one by one in the order they were registered.
 
 
-<h1> 6) microservices</h1>
+<h1> 7) microservices</h1>
 
 Microservices architecture is a smart way to design applications by breaking them into smaller, independent components—microservices—each focusing on a specific task.
 
 These microservices operate autonomously, allowing for independent development, deployment, and scaling.
 
 
-<h1> 7) Throttling</h1>
+<h1> 8) Throttling</h1>
 
 API Throttling is a technique used to control the amount of data that an app or user can request from your API.
 
@@ -92,7 +121,7 @@ This is usually implemented as a number of requests per minute/hour/day.
                    Fair Usage 
                    Cost Control
 
-<h1> 8) Rate Limiting</h1>
+<h1> 9) Rate Limiting</h1>
 
 Rate limiting is a technique used to control the amount of incoming or outgoing traffic within a network. 
 
@@ -111,7 +140,7 @@ express-rate-limit is a middleware for Express.js applications that helps contro
                    Defending against DDoS attacks 
                    Cost efficiency
 
-<h1> 9) access token vs refresh token</h1>
+
 
 <h1> 10) fork vs spawn</h1>
 
@@ -164,12 +193,42 @@ USECASE ->
 Clustering is useful when you have a high number of incoming HTTP requests or other I/O-bound tasks.
 
 
-<h1> 12)</h1>
-<h1> 13) libuv</h1>
-<h1> 14) web socket</h1>
+
+<h1> 12) libuv</h1>
+It is a C library that provides an abstraction layer to handle and manage various low-level operations,such as 
+
+              -> File system access,
+              -> Networking,
+              -> Thread pool, 
+              -> Child Process 
+              -> managing event loop,
+              -> Asynchronous I/O, 
+              -> And supporting the cross-platform behavior of Node.js.
+
+<h1> 13) web socket</h1>
+
+WebSockets in Express.js and Node.js enable real-time, two-way communication between a website and its server. This allows for features like live chat, instant updates, and interactive experiences.
+
+WebSockets maintain a persistent connection, unlike typical web requests.
+Libraries such as ws and socket.io simplify the integration of WebSockets into Node.js and Express.js applications.
+
+Why use WebSockets?
+
+
+              Real-time updates: See changes instantly, like in a live game or chat.
+
+              Two-way communication: Both the website and the server can send messages at any time.
+
+              Faster than usual: No waiting for the website to “call” the server every time.
+
+<h1> 14) access token vs refresh token</h1>
+
 <h1> 15) JWT Token</h1>
+
 <h1> 16) buffer</h1>
-<h1> 17) test pyramid</h1>
+
+<h1> 17) Thread Pool</h1>
+
 <h1> 18) setimmediate vs process.nextTick</h1>
 
 process.nextTick() fires immediately on the same phase
@@ -193,7 +252,7 @@ Uses ->Read Files/Write Files/Append Files/Close Files/Delete Files
 
 Features -> Asynchronous and Synchronous Methods/Error Handling/Directory Management
 
-
+<h1> 21) test pyramid</h1>
 
 
 
