@@ -16,7 +16,9 @@ List of important Questions asked in Interview
 
 13) [Write a program to merge,sort,remove duplicates, and remove "_" in array](ArrayManipulation.js)
 
-13) [Write a program to move zeroes to last in an array](MoveZero.js)
+14) [Write a program to move zeroes to last in an array](MoveZero.js)
+
+15) [Write a program to sort on the basis of type of Object](SortObject.js)
 
 
 

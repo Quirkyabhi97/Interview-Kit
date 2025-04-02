@@ -3,7 +3,7 @@
 let arrayInfo = [
     { fname: "Abhinav", lname: "sharma", age: 27 },
     { fname: "Hardik", lname: "Rathod", age: 28 },
-    { fname: "Akshay", lname: "Bkl", age: 31 },
+    { fname: "Akshay", lname: "Ardeshna", age: 31 },
     { fname: "chinmay", lname: "Rathod", age: 28 },
   ];
 
