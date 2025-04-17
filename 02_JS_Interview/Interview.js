@@ -497,3 +497,93 @@ const array = [
 const resultObj = addIdToArray(array);
 console.log(resultObj);
 
+
+///give output
+
+// const output = [
+//   { id: 1, name: ["Alice", "Charlie"] },
+//   { id: 2, name: ["Bob", "Eve"] },
+//   { id: 3, name: ["David"] },
+// ];
+
+const inputArr = [
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" },
+  { id: 1, name: "Charlie" },
+  { id: 3, name: "David" },
+  { id: 2, name: "Eve" },
+];
+
+const outputArr = input.reduce((acc, { id, name }) => {
+  // Find if the id already exists in the accumulator
+  const existing = acc.find(item => item.id === id);
+  
+  if (existing) {
+    // If it exists, push the name into the existing array
+    existing.name.push(name);
+  } else {
+    // If it doesn't exist, create a new entry with the id and name in an array
+    acc.push({ id, name: [name] });
+  }
+  return acc;
+}, []);
+
+console.log(outputArr);
+
+//return sum pair
+
+var arraySum = [2, 3, 5, 6, 7, 8, 9, 11, 12];
+var sum = 13;
+ //Output - [[2, 11], [5, 8], [6, 7]]
+ 
+ function findSumPairs(arr,target){
+     let result = [];
+     for(let i=0;i<arr.length;i++){
+         for(let j=i+1;j<arr.length;j++){
+             if(arr[i]+arr[j]===target){
+                 result.push([arr[i],arr[j]])
+             }
+         }
+     }
+    return result;
+ }
+ 
+ console.log(findSumPairs(arraySum,sum))
+
+ // sort only positive values
+
+ function sortPositive (array){
+    
+  const positiveValues = array.filter(num =>num>=0)
+  .sort((a,b)=>a-b);
+  //const negetiveValues = array.filter(num => num<0)
+  
+  let indexOfPositiveVal = 0;
+ 
+ return array.map(num=>{
+     if(num>=0){
+         return positiveValues[indexOfPositiveVal++]
+     }
+     else{
+         return num;
+     }
+ })
+}
+
+console.log(sortPositive(arr))
+
+//print a pyramid
+
+console.log("Try programiz.pro");
+
+function pyramid (rows){
+    for(let i=1;i<=rows;i++){
+        let stars = "*".repeat(i)
+        console.log(stars)
+    }
+}
+
+pyramid(5);
+
+
+
